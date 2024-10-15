@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>About Us</title>
+{% endblock title %}
+{% block content %}
+<section class="about">
+    <div class="about-container">
+        <div class="about-content">
+            <img src="{% static 'images/about1.jpg' %}" alt="image1">
+            <h1>About Us</h1>
+        </div>
+        <div class="about-info">
+            <div class="about-history">
+                <div class="Our-history">
+                    <h1>Our Company</h1>
+                    <p>Founded in 2017, Unicure Pharmacy began as a small, family-run business with a simple mission:
+                        <br> to provide affordable and quality healthcare products to the local community.<br>
+                         Its founder, Dr.Samuel Gichuhi a pharmacist with a vision to bridge the gap in
+                         accessible healthcare, opened the first store in Nairobi.
+
+                        The pharmacy quickly gained a reputation for excellent customer service, <br>
+                        reliable pharmaceutical advice, and an extensive range of prescription and<br>
+                         over-the-counter medications. By focusing on customer satisfaction and trust, <br>
+                         Unicure Pharmacy expanded its operations, opening additional branches across the region within its first Biennial.
+                    
+                </p>
+                </div>
+                <div class="Our-history">
+                    <h1>Our Core Values</h1>
+                    <p>Integrity,Professionalism, Excellence and Customer focus. We are proud with our <br>
+                    commitment to providing quality products and services to our customers.
+                    </p>
+                </div>
+            </div>
+            <div class="about-detail">
+                <div class="Our-history">
+                    <h1>Our Vision</h1>
+                    <p>
+                        To be a trusted and reliable healthcare partner,<br>
+                            offering accessible and affordable pharmaceutical solutions, ensuring the well-being of our community with compassionate care and innovation.
+                </p>
+                </div>
+                <div class="Our-history">
+                    <h1>Our Mission</h1>
+                    <p>"To provide safe, affordable, and accessible healthcare products and services to our community.<br>
+                            We are dedicated to delivering high-quality pharmaceuticals, health consultations, and personalized care,<br>
+                            ensuring the well-being of every customer through professionalism, compassion, and integrity."
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+	
+            <div class="contents-wraper">
+                
+                <section class="header"><h1>Our Doctors</h1></section>
+        
+                <section class="testRow">
+                    
+                    <div class="testItem active">
+                        <img src="{% static 'images/doc.jpg' %}" alt="image1">
+                        <h3>Dr. Samuel M. Gichuhi</h3>
+                        <p>We're here to provide compassionate, expert care for all your health needs. Whether you're a new or returning patient, we look forward to helping you stay healthy and feel your best.</p>
+                    </div>                    
+                </section>
+        
+                <section class="indicators">
+                    <div class="dot active" attr='0' onclick="switchTest(this)"></div>
+                </section>
+        
+            </div>
+        </div>
+        
+</section>
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock content %}

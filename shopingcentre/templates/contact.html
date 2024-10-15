@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>Contact Us</title>
+{% endblock title %}
+{% block content %}
+<section class="contact">
+    <div class="about-content">
+        <img src="{% static 'images/team.jpg' %}" alt="image1">
+        <h1>Contact Us</h1>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/veeecommerce/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/veeecommerce/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/veeecommerce/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/veeecommerce"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+    <div class="contact-info">
+        <div class="contact-map">
+            <a href="https://maps.app.goo.gl/owxtjt84sxfvwGn19">
+                <img src="{% static 'images/map.JPG' %}" alt="image1">
+            </a>
+        </div>
+        <div class="contact-form">
+            <div class="contact-header">
+                <h1>Contact form</h1>
+                <h2>Get In Touch</h2>
+            </div>
+            <form action="https://api.web3forms.com/submit" class="form" method="POST">
+                <input type="hidden" name="access_key" value="2ca6d925-9a01-48d7-9f63-672e2d31dfd8">
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Your Email">
+                <input type="text" name="subject" placeholder="Subject">
+                <textarea name="message" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                <input type="submit"  class="submit">
+            </form>
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/app.js' %}"></script>
+
+{% endblock content %}

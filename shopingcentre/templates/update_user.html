@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title> Sign-Up</title>
+{% endblock title %}
+
+{% block content %}
+<div class="create-cont">
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <section class="form-container">
+                    <div class="form-group">
+                        <h1 class="text">Fill the Form Below to Update Your Credentials</h1>
+                        {% if form.errors%}
+                            <p class="color" style="color: white; background-color: red; width: 270px; padding: 20px;">Please Check Your Entries and try again</p>
+                        {% endif %}
+                                {{user_form.username}}
+                                {{user_form.first_name}}
+                                {{user_form.last_name}}
+                                {{user_form.email}}
+                                {{user_form.password1}}
+                                {{user_form.password2}}
+                        <div class="account-auth">
+                            <button type="submit" class="btn">Update User</button>
+                            <a class="login-link" href="{% url "shopingcentre:update_password" %}">Change Passowrd</a>
+                        </div>
+                    </div>
+                </section>
+                
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

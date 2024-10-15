@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Shop</title>
+{% endblock title %}
+{% block content %}
+    <div class="shop">
+        <div class="about-content">
+            <img src="{% static 'images/darksho.jpg' %}" alt="image1">
+            <h2>Shop In Style with</h2>
+            <h1>TedShop</h1>
+        </div>
+        <div class="shop-container">
+            <div class="shop-type">
+                <div class="shop-categories">
+                    <h1>Categories</h1>
+                    <ul class="category">
+                        <li><a href="{% url "shopingcentre:shop" %}">All</a> </li>
+                        <li><a href="{% url "shopingcentre:category" 'Women' %}">Women</a> </li>
+                        <li><a href="{% url "shopingcentre:category" 'men' %}">Men</a> </li>
+                        <li><a href="{% url "shopingcentre:category" 'Children' %}">Children</a> </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="shop-container-item">
+            <div class="shop-item">
+                {% for product in products %}
+                {% if product.is_sale  %}
+                <div class="shop-content">
+                    <div class="sale">Sale</div>
+                    <img src="{{product.image.url}}" alt="image1">
+                    <h1>{{product.name}}</h1>
+                    <p class="price"><strike>${{product.price}}</strike>&nbsp;${{product.sale_price}}</p>
+                    
+                </div>
+                {% else %}
+                <div class="shop-content">
+                    <img src="{{product.image.url}}" alt="image1">
+                    <div class="cart"></div>
+                    <h1>{{product.name}}</h1>
+                    <p class="price">${{product.price}}</p>
+                </div>
+                {% endif %}
+                <div class="view">
+                    <div class="cartLink">
+                        <a href="" value="{{product.id}}" id="addCart" >Add to cart</a>
+                    </div>
+                    <div class="viewLink">
+                        <a href=" {% url 'shopingcentre:product' pk=product.id %}">View Product</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

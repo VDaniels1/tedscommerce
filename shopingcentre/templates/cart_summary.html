@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Cart</title>    
+{% endblock title %}
+{% block content %}
+
+    <div class="cart-container">
+        {% if not cart_items %}
+            <h1 style="text-align: center;">Your Shoping Cart Is Empty</h1>
+            <div class="text-centre">
+                <a href="{%url 'shopingcentre:shop'%}" class="shop" style="color: black;">Continue Shoping</a>
+            </div>
+        {% else %}
+        
+        <div class="cart-content">
+            {% for cart_item in cart_items  %}
+            <div class="cart-item">
+                <img src="{{cart_item.product.image.url}}" alt="image1" class="carImg">
+                <div class="cart-text">
+                    <h1>{{cart_item.product.name}}</h1>
+                    <p class="price">{{cart_item.product.price}}</p>
+                    <p class="total-price">Total cost: Kshs {{cart_item.subtotal}}</p>
+                    <div class="quantity">
+                        <p>Quantity</p>
+                        <input type="number" value="{{cart_item.quantity}}" >
+                    </div>
+                    <a href="{% url 'remove_cart_item' cart_item.product.id%}">Delete</a>
+                    <div class="calculate">
+                        <div class="minus">
+                            <a href="{% url 'remove_cart' cart_item.product.id%}"><i class="fas fa-minus"></i></a>
+                        </div>
+                        <div class="plus">
+                            <a href="{% url 'add_cart' cart_item.product.id%}"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            {% endfor %} 
+        </div>
+        <div class="checkout-container">
+            <div class="check-content">
+                <div class="subtotal">
+                    <p class="check">Subtotal</p>
+                    <p >${{total}}</p>
+                </div>
+                <div class="shipping">
+                    <p class="check">Tax</p>
+                    <p>Kshs {{tax}}</p>
+                </div>
+                <div class="total">
+                    <p class="check">Grand Total</p>
+                    <p>Kshs {{grand_total}}</p>
+                </div>
+                
+            </div>
+            <div class="Payment">
+                <div class="make-payment">
+                    <a href=" {% url "shopingcentre:checkout" %}">Make Payment</a>
+                </div>
+                <div class="continue">
+                    <a href=" {% url "shopingcentre:shop" %}">Continue Shopping</a>
+                </div>
+                
+            </div>
+            {% endif %}
+    </div>
+{% endblock content %}

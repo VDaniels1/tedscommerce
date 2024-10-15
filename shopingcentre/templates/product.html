@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="product">
+    <div class="back"><a href=" {% url 'shopingcentre:shop'%}">Back</a></div>
+    <div class="img-container">
+        <div class="big-image">
+            <img src="{{ product.image.url}}" alt="">
+        </div>
+        <div class="small-images">
+            <div class="small">
+                <img src="{{product.image.url}}" onclick ="showImg(this.src)" class="img1"alt="" >
+            </div>
+            <div class="small">
+                <img src="{{product.image.url}}" onclick ="showImg(this.src)" alt="" >
+            </div>
+            <div class="small">
+                <img src="{{product.image.url}}" onclick ="showImg(this.src)" alt="" >
+            </div>
+        </div>
+    </div>
+    <div class="product-content">
+        <h1 class="product-name">{{product.name}}</h1>
+        <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <h1 class="product-price">Kshs {{product.price}}</h1>
+        <div class="product-size">
+            <div class="psize">M</div>
+            <div class="psize">L</div>
+            <div class="psize">XL</div>
+            <div class="psize">XXL</div>
+        </div>
+        <div class="product-quantity">
+            <p>Quantity</p>
+            <input type="number" name="" id="" min="1" value="1" max="5">
+        </div>
+        <div class="product-btn">
+            <a href="{% url 'add_cart' product_id=product.id %}" class="addCart" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModal"value="{{product.id}}" id="addCart">Add Cart</a>
+        </div>
+    </div>
+</section>
+
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock content %}

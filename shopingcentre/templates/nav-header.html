@@ -1,0 +1,37 @@
+{% comment %} mobile screen {% endcomment %}
+{% comment %} end of mobile screen {% endcomment %}
+<div class="nav-header">
+    <div class="nav-logo">
+        <h1>Unicure <span class="logo"></span></h1>
+    </div>
+    <nav class="links" id="links">
+        <li><a href="{% url 'shopingcentre:home' %}">Home</a></li>
+        <li><a href="{% url 'shopingcentre:shop'%}">Chemist</a></li>
+        <li><a href="{% url 'shopingcentre:about'%}">About</a></li>
+        <li><a href="{% url 'shopingcentre:contact'%}">Contact Us</a></li>
+    </nav>
+    <div class="authentication">
+        <i class="fas fa-user"></i>
+        <i class="fas fa-caret-down arrow"></i>
+        <div class="auth">
+            {% if user.is_authenticated %}
+            <a href="{% url 'shopingcentre:logout'%}">Logout</a>
+            <a href="{% url 'shopingcentre:update_user'%}">Profile</a>
+            {% else  %}
+            <a href="{% url 'shopingcentre:login'%}">Login</a>
+            <a href="{% url 'shopingcentre:signup'%}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="cart-icon">
+        <a href="{% url 'cart'%}">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">{{cart_count}}</span>
+        </a>
+        
+    </div>
+    
+    </div>
+</div>
+
+

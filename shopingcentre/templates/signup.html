@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title> Sign-Up</title>
+{% endblock title %}
+
+{% block content %}
+<div class="create-cont">
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <section class="form-container">
+                    <div class="form-group">
+                        <h1 class="text">Fill the Form Below to Register</h1>
+                        {% if form.errors%}
+                            <p class="color" style="color: white; background-color: red; width: 270px; padding: 20px;">Please Check Your Entries and try again</p>
+                        {% endif %}
+                                {{form.username}}
+                                {{form.first_name}}
+                                {{form.last_name}}
+                                {{form.email}}
+                                {{form.password1}}
+                                {{form.password2}}
+                        {% comment %} {{form.username}}
+                        {{form.email}}
+                        {{form.password1}} {% endcomment %}
+                        {% comment %} <input type="text"  name="firstname" placeholder="firstname"required>
+                        <input type="text"  name="lastname" placeholder="lastname"required>
+                        <input type="text"  name="username" placeholder="username"required>
+                        <input type="email"  id="email" placeholder="email"required>
+                        <input type="password"  id="password" name="password" placeholder="password" required>
+                        <input type="password"  id="password1" name="password1" placeholder="password" required> {% endcomment %}
+                        <div class="account-auth">
+                            <button type="submit" class="btn">Sign-Up</button>
+                            <a class="login-link" href=" {% url 'shopingcentre:login' %}">Login</a>
+                        </div>
+                    </div>
+                </section>
+                
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

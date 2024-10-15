@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Shop</title>
+{% endblock title %}
+{% block content %}
+    <div class="shop">
+        <div class="about-content">
+            <img src="{% static 'images/2.jpg' %}" alt="image1">
+            <h2>For Medical Consultation Click</h2>
+            <h1><a href=" https://wa.me/+254706855747">Here</a></h1>
+        </div>
+        <div class="shop-container-item">
+            <div class="shop-item">
+                {% for product in products %}
+                {% if product.is_sale  %}
+                <div class="shop-content">
+                    <div class="sale">Sale</div>
+                    <img src="{{product.image.url}}" alt="image1">
+                    <h1>{{product.name}}</h1>
+                    <p class="price"><strike>Kshs{{product.price}}</strike>&nbsp;Kshs{{product.sale_price}}</p>
+                </div>
+                {% else %}
+                <div class="shop-content">
+                    <img src="{{product.image.url}}" alt="image1">
+                    <div class="cart"></div>
+                    <h1>{{product.name}}</h1>
+                    <p class="price">Kshs{{product.price}}</p>
+                </div>
+                {% endif %}
+                <div class="view">
+                    <div class="cartLink">
+                        <a href="{% url 'add_cart' product_id=product.id %}" class="addCart" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModal"value="{{product.id}}" id="addCart">Add Cart</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+{% endblock content %}
