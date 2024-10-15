@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-z-8dc!(7h33bs^7wp6=**et+8_px=noo5m&32hxd2*%-z3xtin
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['unicure-pharmacy.onrender.com']
+ALLOWED_HOSTS = ['unicure-pharmacy-o6rx.onrender.com']
 
 
 # Application definition
